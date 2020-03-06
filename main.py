@@ -73,8 +73,7 @@ def get_hh_programers_statistic():
     return(hh_total)
 
 
-def get_sj_programers_statistic():
-    super_job_secret_key = get_data_from_env("secret_key")
+def get_sj_programers_statistic(super_job_secret_key):
     headers = {
         "X-Api-App-Id": super_job_secret_key}
     super_job_total = []
@@ -131,7 +130,9 @@ def print_table(languages_data, title):
 
 def main():
     print_table(get_hh_programers_statistic(), 'Headhunter Moscow')
-    print_table(get_sj_programers_statistic(), 'SuperJob Moscow')
+    super_job_secret_key = get_data_from_env("secret_key")
+    print_table(get_sj_programers_statistic(super_job_secret_key),
+                'SuperJob Moscow')
 
 
 if __name__ == '__main__':

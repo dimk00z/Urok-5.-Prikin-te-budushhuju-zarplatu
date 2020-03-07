@@ -135,6 +135,10 @@ def main():
                 'SuperJob Moscow')
 
 
-# git test
+def nothing():
+    return 11
+
+
+# git test  !!
 if __name__ == '__main__':
     main()

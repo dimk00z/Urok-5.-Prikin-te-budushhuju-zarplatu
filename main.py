@@ -67,9 +67,9 @@ def get_hh_programers_statistic():
         vacancies_processed, average_salary = get_hh_vancancy_average_salary(
             vacancy_name, pages_count=10)
         hh_total.append([prog_language,
-                        vacancies_found,
-                        vacancies_processed,
-                        average_salary])
+                         vacancies_found,
+                         vacancies_processed,
+                         average_salary])
     return(hh_total)
 
 
@@ -92,10 +92,10 @@ def get_sj_programers_statistic(super_job_secret_key):
         for item in response.json()['objects']:
             if (item['payment_from'] != 0 and
                 item['payment_to'] != 0 and
-                item['currency'] == 'rub'):
-                    vacancies_processed += 1
-                    average_salaries.append(get_average_salary(
-                        item['payment_from'], item['payment_to']))
+                    item['currency'] == 'rub'):
+                vacancies_processed += 1
+                average_salaries.append(get_average_salary(
+                    item['payment_from'], item['payment_to']))
         if (response.json()['total'] != 0 and vacancies_processed != 0):
             super_job_total.append([prog_language,
                                     response.json()['total'],
@@ -135,5 +135,6 @@ def main():
                 'SuperJob Moscow')
 
 
+# git test
 if __name__ == '__main__':
     main()
